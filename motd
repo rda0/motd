@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 OWNER="rda"
 ORG="ETH Zurich ISG D-PHYS"
