@@ -13,7 +13,8 @@ apt install lsb-release
 ```
 git clone https://github.com/rda0/motd.git
 cd motd
-echo '' > /etc/motd
-rm /etc/update-motd.d/10-uname
+mv /etc/motd /etc/motd.old
+touch /etc/motd
+rm /etc/update-motd.d/*
 cp motd /etc/update-motd.d/10-motd
 ```
