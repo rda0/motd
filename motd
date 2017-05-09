@@ -20,13 +20,13 @@ wh() {
 
 printf '\n'
 printf '  [0m[1;37m       _,met$$$$$gg.          '; rd; printf "Host:       "; wh; printf "$(hostname --fqdn)\n"
-printf '  [0m[1;37m    ,g$$$$$$$$$$$$$$$P.       '; rd; printf "IPs:        "; wh; printf "$(hostname -I)\n"
+printf '  [0m[1;37m    ,g$$$$$$$$$$$$$$$P.       '; rd; printf "IPs:        "; wh; printf "$(hostname -i)\n"
 printf '  [0m[1;37m  ,g$$P""       """Y$$.".     '; rd; printf "OS:         "; wh; printf "${DISTRIB_DESCRIPTION}\n"
 printf '  [0m[1;37m ,$$P`              `$$$.     '; rd; printf "Kernel:     "; wh; printf "$(uname -m) $(uname -s) $(uname -r)\n"
 printf '  [0m[1;37m ,$$P       ,ggs.     `$$b:   '; rd; printf "Uptime:     "; wh; printf "$(uptime | grep -ohe 'up .*' | sed 's/,/\ hours/g' | awk '{ printf $2" "$3 }')\n"
 printf '  [0m[1;37m`d$$`     ,$P"`   [0m[1;31m.[0m[1;37m    $$$    '; rd; printf "Packages:   "; wh; printf "$(dpkg -l | wc -l)\n"
 printf '  [0m[1;37m $$P      d$`     [0m[1;31m,[0m[1;37m    $$P    '; rd; printf "Shell:      "; wh; printf "${SHELL}\n"
-printf '  [0m[1;37m $$:      $$.   [0m[1;31m-[0m[1;37m    ,d$$`    '; rd; printf "CPU:        "; wh; printf "$(cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l)x$(cat /proc/cpuinfo | grep 'model name' | head -1 | cut -d':' -f2 | sed -e 's/  */ /g')\n"
+printf '  [0m[1;37m $$:      $$.   [0m[1;31m-[0m[1;37m    ,d$$`    '; rd; printf "CPU:        "; wh; printf "$(cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l)x$(cat /proc/cpuinfo | grep 'model name' | head -1 | cut -d':' -f2 | sed -e 's/Intel//' | sed -e 's/(R)//g' | sed -e 's/(TM)//g' | sed -e 's/@//g' | sed -e 's/ CPU//' | sed -e 's/  */ /g')\n"
 printf '  [0m[1;37m $$\;      Y$b._   _,d$P`     '; rd; printf "Cores:      "; wh; printf "$(cat /proc/cpuinfo | grep 'processor' | wc -l)\n"
 printf '  [0m[1;37m Y$$.    [0m[1;31m`.[0m[1;37m`"Y$$$$P"`         '; rd; printf "RAM:        "; wh; printf "$(free -m | head -n 2 | tail -n 1 | awk {'print $3"MiB"'}) / $(free -m | head -n 2 | tail -n 1 | awk {'print $2"MiB"'})\n"
 printf '  [0m[1;37m `$$b      [0m[1;31m"-.__[0m[1;37m              '; rd; printf "Swap:       "; wh; printf "$(free -m | tail -n 1 | awk {'print $3"MiB"'}) / $(free -m | tail -n 1 | awk {'print $2"MiB"'})\n"
