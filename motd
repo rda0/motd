@@ -19,7 +19,7 @@ wh() {
 }
 
 printf '\n'
-printf '  [0m[1;37m       _,met$$$$$gg.          '; rd; printf "Host:       "; wh; printf "$(hostname --fqdn)\n"
+printf '  [0m[1;37m       _,met$$$$$gg.          '; rd; printf "Host:       "; wh; printf "$(hostname -s)\n"
 printf '  [0m[1;37m    ,g$$$$$$$$$$$$$$$P.       '; rd; printf "IPs:        "; wh; printf "$(hostname -I)\n"
 printf '  [0m[1;37m  ,g$$P""       """Y$$.".     '; rd; printf "OS:         "; wh; printf "${DISTRIB_DESCRIPTION}\n"
 printf '  [0m[1;37m ,$$P`              `$$$.     '; rd; printf "Kernel:     "; wh; printf "$(uname -m) $(uname -s) $(uname -r)\n"
